@@ -1,9 +1,10 @@
 import React from 'react';
 import {Table, Button} from 'reactstrap';
+import APIURL from '../helpers/environments';
 
 const BattingAvgTable =(props) => {
     const deleteBatAvg =(batavg) => {
-        fetch(`http://localhost:3000/log/${batavg.id}`, {
+        fetch(`${APIURL}/log/${batavg.id}`, {
             method: 'Delete',
             headers: new Headers ({
                 'Content-Type' : 'application/json',

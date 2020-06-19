@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
+import APIURL from '../helpers/environments';
 
 const BattingAvgEdit =(props) => {
     const [editNOBP, setEditNOBP] = useState(props.batAvgToUpdate.nameOfBallPark);
@@ -12,7 +13,7 @@ const BattingAvgEdit =(props) => {
 
     const batAvgUpdate = (event, batAvg) => {
         event.preventDefault();
-        fetch(`http://localhost:3000/log/${props.batAvgToUpdate.id}`,{
+        fetch(`${APIURL}/log/${props.batAvgToUpdate.id}`,{
             method: 'PUT',
             body: JSON.stringify({nameOfBallPark: editNOBP, date: editDate, location: editLocation, numberOfGames: editNOG, numberedOfHits: editNOH, numberOfAtBats: setEditNOAB, battingAvg: setEditBA}),
             headers: new Headers ({

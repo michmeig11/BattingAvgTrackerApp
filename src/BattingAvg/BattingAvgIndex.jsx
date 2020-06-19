@@ -3,6 +3,8 @@ import {Container, Row, Col} from 'reactstrap';
 import BattingAvgCreate from './BattingAvgCreate';
 import BattingAvgTable from './BattingAvgTable';
 import BattingAvgEdit from './BattingAvgEdit';
+import APIURL from '../helpers/environments';
+
 
 const BattingAvgIndex = (props) => {
     const [batavgs, setBatAvgs] = useState([]);
@@ -20,7 +22,7 @@ const BattingAvgIndex = (props) => {
     } 
 
     const fetchBattingAvg = () => {
-        fetch('http://localhost:3000/log', {
+        fetch(`${APIURL}/log`, {
         method: 'GET',
         headers: new Headers ({
             'Content-Type': 'application/json',

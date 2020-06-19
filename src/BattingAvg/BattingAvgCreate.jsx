@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
+import APIURL from '../helpers/environments';
+
 
 const BattingAvgCreate = (props) => {
     const [nameOfBallPark, SetNameOfBallPark] = useState('');
@@ -12,7 +14,7 @@ const BattingAvgCreate = (props) => {
 
     const handleSubmit =(e) => {
         e.preventDefault();
-        fetch('http://localhost:3000/log/', {
+        fetch(`${APIURL}/log/`, {
         method: 'POST',
         body: JSON.stringify ({nameOfBallPark: nameOfBallPark, date: date, location: location, numberOfGames: numberOfGames, numberOfHits: numberOfHits, numberOfAtBats: numberOfAtBats, battingAvg: battingAvg}),
         headers: new Headers({
